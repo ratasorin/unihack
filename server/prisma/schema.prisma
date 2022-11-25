@@ -1,0 +1,94 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id    String @id @default(uuid())
+  Tasks Task[]
+}
+
+model Task {
+  id        String    @id @default(uuid())
+  Markings  Marking[]
+  User      User      @relation(fields: [userId], references: [id])
+  userId    String
+  passScore Int
+}
+
+model Repetition {
+  id         String   @id @default(uuid())
+  startedAt  DateTime
+  finishedAt DateTime @default(now())
+  score      Int
+}
+
+model Level {
+  id              String           @id @default(uuid())
+  EliminatedWords EliminatedWord[]
+}
+
+model Marking {
+  id      String   @id @default(uuid())
+  Content Content?
+  payload String
+  Task    Task     @relation(fields: [taskId], references: [id])
+  taskId  String
+}
+
+model Content {
+  id        String    @id @default(uuid())
+  Senteces  Sentece[]
+  Marking   Marking   @relation(fields: [markingId], references: [id])
+  markingId String    @unique
+}
+
+model Sentece {
+  id        String    @id @default(uuid())
+  payload   String
+  Success   Success[]
+  Hints     Hint[]
+  Words     Word[]
+  Content   Content   @relation(fields: [contentId], references: [id])
+  contentId String
+}
+
+model Word {
+  id             String           @id @default(uuid())
+  payload        String
+  Sentence       Sentece          @relation(fields: [senteceId], references: [id])
+  senteceId      String
+  EliminatedWord EliminatedWord[]
+}
+
+model Success {
+  id          String   @id @default(uuid())
+  correctedAt DateTime @default(now())
+  score       Int
+  Sentence    Sentece  @relation(fields: [senteceId], references: [id])
+  senteceId   String
+}
+
+model Hint {
+  id        String  @id @default(uuid())
+  payload   String
+  Sentence  Sentece @relation(fields: [senteceId], references: [id])
+  senteceId String
+}
+
+model EliminatedWord {
+  id      String @id @default(uuid())
+  Word    Word   @relation(fields: [wordId], references: [id])
+  wordId  String
+  Level   Level  @relation(fields: [levelId], references: [id])
+  levelId String
+
+  @@unique([wordId, levelId])
+}
