@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "dev": "concurrently --kill-others \"cd server && npm run dev\" \"cd client && npm run dev\""
+  },
+  "devDependencies": {
+    "concurrently": "^7.6.0"
+  }
+}
