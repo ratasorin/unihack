@@ -12,6 +12,7 @@ import { Icon } from "@iconify/react";
 import HomePage from "./pages/HomePage";
 import PlannerPage from "./pages/PlannerPage";
 import PracticePage from "./pages/PracticePage";
+import AccountPage from "./pages/AccountPage";
 
 /*******************************
  * CONFIG
@@ -22,7 +23,7 @@ function App() {
       <Navbar>
         <Navlink href="/practice">Practice</Navlink>
         <Navlink href="/planner">Planner</Navlink>
-        <Navlink href="#">
+        <Navlink href="/account">
           <Icon
             icon="ic:baseline-person-outline"
             className="inline-block align-top"
@@ -35,6 +36,7 @@ function App() {
         <Route path="/" element={<HomePage />}></Route>
         <Route path="/planner" element={<PlannerPage />}></Route>
         <Route path="/practice" element={<PracticePage />}></Route>
+        <Route path="/account" element={<AccountPage />}></Route>
       </Routes>
     </>
   );
