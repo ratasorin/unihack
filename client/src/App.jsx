@@ -6,6 +6,7 @@ import { Routes, Route } from "react-router-dom";
 
 // components
 import { Navbar, Navlink } from "./components/navbar";
+import { Page } from './components/page';
 import { Icon } from "@iconify/react";
 
 // pages
@@ -31,11 +32,13 @@ function App() {
           Account
         </Navlink>
       </Navbar>
-      <Routes>
-        <Route path="/" element={<HomePage />}></Route>
-        <Route path="/planner" element={<PlannerPage />}></Route>
-        <Route path="/practice" element={<PracticePage />}></Route>
-      </Routes>
+      <Page>
+        <Routes>
+            <Route path="/" element={<HomePage />}></Route>
+            <Route path="/planner" element={<PlannerPage />}></Route>
+            <Route path="/practice" element={<PracticePage />}></Route>
+        </Routes>
+      </Page>
     </>
   );
 }
