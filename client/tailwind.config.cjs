@@ -28,6 +28,9 @@ module.exports = {
       backgroundColor: {
         cardColor: "#FFE85C",
       },
+      backgroundColor: {
+        cardColor: "#FFE85C",
+      },
       backgroundImage: {
         feynmann: "url(./src/assets/Richard-Feynman-featured.jpeg)",
         wave1: "url(./scr/assets/SVG/wave_1.svg)",
