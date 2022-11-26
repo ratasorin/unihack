@@ -1,6 +1,8 @@
 import {Navbar, Navlink} from './components/navbar';
 import {Page} from './components/page';
 import {Icon} from '@iconify/react';
+import {Button} from './components/controls/button';
+import {Textbox} from './components/controls/textbox';
 
 function App() {
     return (
@@ -13,6 +15,8 @@ function App() {
             <Page>
                 <p>Page content goes here</p>
                 <p>The content is centered</p>
+                <Button>Start!</Button>
+                <Textbox type='text' />
             </Page>
         </>
     );
