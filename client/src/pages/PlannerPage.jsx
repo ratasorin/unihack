@@ -6,7 +6,7 @@
  * CONFIG
  ***************************/
 const PlannerPage = () => {
-  return <h1>Planner page</h1>;
+  return <h1 className='text-2xl'>Plan de repetiție</h1>;
 };
 
 export default PlannerPage;
