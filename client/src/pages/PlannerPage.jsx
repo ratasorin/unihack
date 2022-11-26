@@ -11,7 +11,7 @@ import Sub from '../components/sub';
 
 const timeTableData = {
   dates: [
-    '10 AM', '11 AM', 'c', 'd', 'e'
+    '10:00', '11:00', '14:00', '20:00', 'Day 2', 'Day 3', 'Week 2', 'Week 3'
   ],
   tasks: [
     ['Eseu Ion - L. Rebreanu', [[1, 'Date istorice', 'Date istorice despre operă'], [4, 'Date istorice']]],
