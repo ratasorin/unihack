@@ -12,7 +12,22 @@ datasource db {
 
 model User {
   id    String @id @default(uuid())
+  mail  String
   Tasks Task[]
+}
+
+model Password {
+  id   String @id @default(uuid())
+  hash String
+  salt String
+}
+
+model Session {
+  id        String   @id @default(uuid())
+  userId    String
+  createdAt DateTime
+  lifeSpan  DateTime
+  status    String
 }
 
 model Task {

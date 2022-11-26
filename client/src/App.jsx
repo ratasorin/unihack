@@ -33,12 +33,14 @@ function App() {
           Account
         </Navlink>
       </Navbar>
-      <Routes>
-        <Route path="/" element={<HomePage />}></Route>
-        <Route path="/planner" element={<PlannerPage />}></Route>
-        <Route path="/practice" element={<PracticePage />}></Route>
-        <Route path="/account" element={<AccountPage />}></Route>
-      </Routes>
+      <Page>
+        <Routes>
+          <Route path="/" element={<HomePage />}></Route>
+          <Route path="/planner" element={<PlannerPage />}></Route>
+          <Route path="/practice" element={<PracticePage />}></Route>
+          <Route path="/account" element={<AccountPage />}></Route>
+        </Routes>
+      </Page>
     </>
   );
 }

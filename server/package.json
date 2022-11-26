@@ -22,6 +22,7 @@
     "zod": "^3.19.1"
   },
   "devDependencies": {
+    "@types/react": "18.0.25",
     "ts-node": "^10.9.1"
   }
 }
