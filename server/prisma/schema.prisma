@@ -65,6 +65,9 @@ model Word {
   Sentence       Sentence         @relation(fields: [sentenceId], references: [id])
   sentenceId     String
   EliminatedWord EliminatedWord[]
+  previousWordId String
+  previousWord   Word             @relation("previous-word", fields: [previousWordId], references: [id])
+  Word           Word[]           @relation("previous-word")
 }
 
 model Success {
