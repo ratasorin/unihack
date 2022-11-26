@@ -29,10 +29,6 @@ export function Navlink(props) {
 export function Navbar(props) {
   const navigate = useNavigate();
 
-  const navigateToHome = () => {
-    navigate("/");
-  };
-
   const navbarToggle = () => {
     // Toggle navbar links visibility for small width screens
     document.getElementById("navbarLinks").classList.toggle("hidden");
