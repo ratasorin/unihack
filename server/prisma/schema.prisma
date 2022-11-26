@@ -1,0 +1,98 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id    String @id @default(uuid())
+  Tasks Task[]
+}
+
+model Task {
+  id        String    @id @default(uuid())
+  Markings  Marking[]
+  User      User      @relation(fields: [userId], references: [id])
+  userId    String
+  passScore Int
+}
+
+model Repetition {
+  id         String   @id @default(uuid())
+  startedAt  DateTime
+  finishedAt DateTime @default(now())
+  score      Int
+}
+
+model Level {
+  id              String           @id @default(uuid())
+  EliminatedWords EliminatedWord[]
+}
+
+model Marking {
+  id      String   @id @default(uuid())
+  Content Content?
+  payload String
+  Task    Task     @relation(fields: [taskId], references: [id])
+  taskId  String
+}
+
+model Content {
+  id        String     @id @default(uuid())
+  Sentences Sentence[]
+  Marking   Marking    @relation(fields: [markingId], references: [id])
+  markingId String     @unique
+}
+
+model Sentence {
+  id        String    @id @default(uuid())
+  Success   Success[]
+  Hints     Hint[]
+  Words     Word[]
+  Content   Content   @relation(fields: [contentId], references: [id], onDelete: Cascade)
+  contentId String
+}
+
+model Word {
+  id             String           @id @default(uuid())
+  payload        String
+  Sentence       Sentence         @relation(fields: [sentenceId], references: [id])
+  sentenceId     String
+  EliminatedWord EliminatedWord[]
+  nextWordId     String?
+  nextWord       Word?            @relation("next-word", fields: [nextWordId], references: [id])
+  Word           Word[]           @relation("next-word")
+
+  @@unique([sentenceId, nextWordId])
+}
+
+model Success {
+  id          String   @id @default(uuid())
+  correctedAt DateTime @default(now())
+  score       Int
+  Sentence    Sentence @relation(fields: [sentenceId], references: [id])
+  sentenceId  String
+}
+
+model Hint {
+  id         String   @id @default(uuid())
+  payload    String
+  Sentence   Sentence @relation(fields: [sentenceId], references: [id])
+  sentenceId String
+}
+
+model EliminatedWord {
+  id      String @id @default(uuid())
+  Word    Word   @relation(fields: [wordId], references: [id], onDelete: Cascade)
+  wordId  String
+  Level   Level  @relation(fields: [levelId], references: [id], onDelete: Cascade)
+  levelId String
+
+  @@unique([wordId, levelId])
+}
