@@ -8,7 +8,6 @@ const AccountPage = () => {
         Name:
         <input type="text" id="mail" name="mail" placeholder="Your mail here" />
       </label>
-
       <label>
         Password:
         <input
@@ -18,7 +17,6 @@ const AccountPage = () => {
           placeholder="*********"
         />
       </label>
-
       <label>
         Confirm password:
         <input
