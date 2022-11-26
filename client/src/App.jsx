@@ -1,16 +1,21 @@
-import Navbar from './components/navbar';
-import NavbarLink from './components/navbar/navlink';
+import {Navbar, Navlink} from './components/navbar';
+import {Page} from './components/page';
+import {Icon} from '@iconify/react';
 
 function App() {
-  return (
-    <>
-      <Navbar>
-        <NavbarLink name="Navlink 1" />
-        <NavbarLink name="Navlink 2" />
-        <NavbarLink name="Navlink 3" />
-      </Navbar>
-    </>
-  );
+    return (
+        <>
+            <Navbar>
+                <Navlink>Navlink 1</Navlink>
+                <Navlink href="#">Navlink 2</Navlink>
+                <Navlink href="#"><Icon icon='ic:baseline-person-outline' className='inline-block align-top' width='24'/>Account</Navlink>
+            </Navbar>
+            <Page>
+                <p>Page content goes here</p>
+                <p>The content is centered</p>
+            </Page>
+        </>
+    );
 }
 
 export default App
