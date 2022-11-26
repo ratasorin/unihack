@@ -4,11 +4,12 @@ import Button from '../components/controls/button';
 const AccountPage = () => {
     return (
 
-        <form>
+        <form action="http://localhost:3000/api/signUP" method="post">
             <label>
                 Name: 
                 <input
                  type="text"
+                 
                  id="name"
                  name="name"
                  placeholder="Your Name here"
