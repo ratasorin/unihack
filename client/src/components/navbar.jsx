@@ -14,6 +14,7 @@ export function Navlink(props) {
 
 export function Navbar(props) {
     const navbarToggle = () => {
+        // Toggle navbar links visibility for small width screens
         document.getElementById('navbarLinks').classList.toggle('hidden');
         document.getElementById('navbarLinks').classList.toggle('flex');
     };
