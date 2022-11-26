@@ -44,27 +44,26 @@ model Marking {
 }
 
 model Content {
-  id        String    @id @default(uuid())
-  Senteces  Sentece[]
-  Marking   Marking   @relation(fields: [markingId], references: [id])
-  markingId String    @unique
+  id        String     @id @default(uuid())
+  Sentences Sentence[]
+  Marking   Marking    @relation(fields: [markingId], references: [id])
+  markingId String     @unique
 }
 
-model Sentece {
+model Sentence {
   id        String    @id @default(uuid())
-  payload   String
   Success   Success[]
   Hints     Hint[]
   Words     Word[]
-  Content   Content   @relation(fields: [contentId], references: [id])
+  Content   Content   @relation(fields: [contentId], references: [id], onDelete: Cascade)
   contentId String
 }
 
 model Word {
   id             String           @id @default(uuid())
   payload        String
-  Sentence       Sentece          @relation(fields: [senteceId], references: [id])
-  senteceId      String
+  Sentence       Sentence         @relation(fields: [sentenceId], references: [id])
+  sentenceId     String
   EliminatedWord EliminatedWord[]
 }
 
@@ -72,22 +71,22 @@ model Success {
   id          String   @id @default(uuid())
   correctedAt DateTime @default(now())
   score       Int
-  Sentence    Sentece  @relation(fields: [senteceId], references: [id])
-  senteceId   String
+  Sentence    Sentence @relation(fields: [sentenceId], references: [id])
+  sentenceId  String
 }
 
 model Hint {
-  id        String  @id @default(uuid())
-  payload   String
-  Sentence  Sentece @relation(fields: [senteceId], references: [id])
-  senteceId String
+  id         String   @id @default(uuid())
+  payload    String
+  Sentence   Sentence @relation(fields: [sentenceId], references: [id])
+  sentenceId String
 }
 
 model EliminatedWord {
   id      String @id @default(uuid())
-  Word    Word   @relation(fields: [wordId], references: [id])
+  Word    Word   @relation(fields: [wordId], references: [id], onDelete: Cascade)
   wordId  String
-  Level   Level  @relation(fields: [levelId], references: [id])
+  Level   Level  @relation(fields: [levelId], references: [id], onDelete: Cascade)
   levelId String
 
   @@unique([wordId, levelId])
