@@ -38,7 +38,7 @@ export function NavBar(props) {
         <div className='flex-1 flex text-2xl px-2'>
           <div className='flex-1'>
             <NavLink to='/' className='hover:underline active:scale-110'>
-              <strong>Logo</strong> Goes Here
+              <strong>Think</strong>.er
             </NavLink>
           </div>
           <div className='self-end justify-self-end'>
