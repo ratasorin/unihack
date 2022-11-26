@@ -46,8 +46,8 @@ export default function SignUpPage() {
         </label>
       </form>
       <div className='flex justify-center gap-2'>
-        <Button color='green' onClick={() => {document.getElementById('loginForm').submit()}}>Submit</Button>
-        <Link to='/account/login'><Button onClick>Login</Button></Link>
+        <Button color='green' onClick={() => { document.getElementById('signupForm').submit() }}>Submit</Button>
+        <Link to='/account/login'><Button>Login</Button></Link>
       </div>
     </div>
   )
