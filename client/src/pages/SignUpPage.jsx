@@ -9,7 +9,7 @@ export default function SignUpPage() {
     <div className='mx-auto backdrop-blur-sm w-96 m-6 p-4 bg-white-alpha-80 rounded-lg shadow-lg shadow-black-alpha-50 flex flex-col gap-y-4'>
       <h1 className='text-2xl text-center'>Sign Up</h1>
       <form 
-        id='loginForm' 
+        id='signupForm'
         action='http://localhost:3000/api/signUp' 
         method='POST'
         className='flex flex-col gap-y-2'
