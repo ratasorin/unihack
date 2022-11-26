@@ -68,6 +68,8 @@ model Word {
   previousWordId String?
   previousWord   Word?            @relation("previous-word", fields: [previousWordId], references: [id])
   Word           Word[]           @relation("previous-word")
+
+  @@unique([sentenceId, previousWordId])
 }
 
 model Success {
