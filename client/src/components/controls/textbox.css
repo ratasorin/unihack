@@ -1,0 +1,17 @@
+.textbox {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    border-radius: 6px;
+    padding: 4px 6px;
+    background-color: rgba(0,0,0,5%);
+    border-bottom: 2px solid rgba(0,0,0,20%);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+.textbox:focus {
+    border-bottom-color: rgba(103, 184, 231, 100%);
+    box-shadow: 0 0 0 1px rgba(103, 184, 231, 40%);
+}

@@ -29,10 +29,6 @@ export function Navlink(props) {
 export function Navbar(props) {
   const navigate = useNavigate();
 
-  const navigateToHome = () => {
-    navigate("/");
-  };
-
   const navbarToggle = () => {
     // Toggle navbar links visibility for small width screens
     document.getElementById("navbarLinks").classList.toggle("hidden");
@@ -40,12 +36,14 @@ export function Navbar(props) {
   };
 
   return (
-    <nav className="navbar fixed top-0 z-50 left-0 right-0 flex pt-8 pb-2 bg-gradient-to-r from-navbar1 to-navbar2 justify-center shadow-lg cursor-default">
-      <div className="flex-1 flex max-w-5xl gap-2 text-white justify-start flex-col md:flex-row">
+    <nav className="navbar fixed top-0 z-50 left-0 right-0 flex pt-8 pb-2 bg-gradient-to-r from-navbar1 to-navbar2 backdrop-blur-sm justify-center shadow-lg cursor-default">
+      <div className="flex-1 drop-shadow-md flex max-w-5xl gap-2 text-white justify-start flex-col md:flex-row">
         <div className="flex-1 flex text-2xl px-2">
-          <span className="flex-1" onClick={navigateToHome}>
-            <strong>Logo</strong> Goes Here
-          </span>
+          <div className='flex-1'>
+            <a className="hover:underline active:scale-110" href='/'>
+              <strong>Logo</strong> Goes Here
+            </a>
+          </div>
           <button
             className="md:hidden self-end justify-self-end"
             onClick={navbarToggle}

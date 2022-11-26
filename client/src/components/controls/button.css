@@ -1,0 +1,65 @@
+.btn {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+    border: none;
+    border-radius: 6px;
+    padding: 4px 10px;
+    color: #222;
+    background-color: rgba(0,0,0,10%);
+    border-bottom: 2px solid rgba(0,0,0,15%);
+    text-decoration: none;
+    text-shadow: 0 1px 0 rgba(0,0,0,20%);
+    transition: background-color 0.2s, box-shadow 0.2s;
+    user-select: none;
+}
+.btn iconify-icon {
+    filter: drop-shadow(0 1px 0 rgba(0,0,0,20%));
+}
+.btn:hover {
+    background-color: rgba(0,0,0,7%);
+}
+.btn:active {
+    background-color: rgba(0,0,0,16%);
+    border-bottom: 2px solid rgba(0,0,0,8%);
+}
+.btn:focus {
+    box-shadow: 0 0 0 1px rgba(0,0,0,20%);
+}
+.btn.btn-green {
+    background-color: #69cd78;
+    color: white;
+    text-shadow: 0 1px 0 rgba(0,0,0,30%);
+}
+.btn.btn-green:hover {
+    background-color: #72da81;
+}
+.btn.btn-green:active {
+    background-color: #62c172;
+}
+.btn.btn-red {
+    background-color: #e65c5c;
+    color: white;
+    text-shadow: 0 1px 0 rgba(0,0,0,40%);
+}
+.btn.btn-red:hover {
+    background-color: #f27171;
+}
+.btn.btn-red:active {
+    background-color: #cf5a5a;
+}
+.btn label {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+.btn iconify-icon {
+    font-size: 18px;
+    margin: -4px 0 -4px -4px;
+}
+.btn[disabled] {
+    color: #888;
+    background-color: rgba(0,0,0,6%);
+    border-bottom: 2px solid rgba(0,0,0,8%);
+}
