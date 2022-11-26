@@ -1,45 +1,11 @@
-import { useState } from "react";
-import ReactDOM from 'react-dom/client';
-import Button from '../components/controls/button';
-const AccountPage = () => {
+
+import Login from '../components/login';
+
+function AccountPage(){
     return (
-
-        <form action="http://localhost:3000/api/signUP" method="post">
-            <label>
-                Name: 
-                <input
-                 type="text"
-                 
-                 id="name"
-                 name="name"
-                 placeholder="Your Name here"
-                />
-            </label>
-
-            <label>
-                Password: 
-                <input
-                 type="text"
-                 id="password"
-                 name="password"
-                 placeholder="*********"
-                />
-            </label>
-
-            <label>
-                Confirm password: 
-                <input
-                 type="text"
-                 id="password2"
-                 name="password2"
-                 placeholder="*********"
-                />
-            </label>
-
-            <Button>Submit</Button>
-        </form>
-        
+        <div>
+            <Login/>
+        </div>
     )
-
   };
 export default AccountPage;
