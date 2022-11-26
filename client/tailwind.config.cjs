@@ -10,9 +10,15 @@ module.exports = {
         btngreen1: "#88E9AF",
         btngreen2: "#DDD370",
       },
+      backgroundColor: {
+        cardColor: "#FFE85C",
+      },
       backgroundImage: {
         feynmann: "url(./src/assets/Richard-Feynman-featured.jpeg)",
         wave1: "url(./scr/assets/SVG/wave_1.svg)",
+      },
+      height: {
+        main: "44rem",
       },
     },
   },
