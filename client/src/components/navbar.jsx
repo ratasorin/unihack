@@ -40,8 +40,8 @@ export function Navbar(props) {
   };
 
   return (
-    <nav className="navbar flex pt-8 pb-2 bg-gradient-to-r from-navbar1 to-navbar2 justify-center shadow-lg cursor-default">
-      <div className="flex-1 flex max-w-5xl gap-2 text-white justify-start flex-col md:flex-row cursor-pointer">
+    <nav className="navbar fixed top-0 left-0 right-0 flex pt-8 pb-2 bg-gradient-to-r from-navbar1 to-navbar2 justify-center shadow-lg cursor-default">
+      <div className="flex-1 flex max-w-5xl gap-2 text-white justify-start flex-col md:flex-row">
         <div className="flex-1 flex text-2xl px-2">
           <span className="flex-1" onClick={navigateToHome}>
             <strong>Logo</strong> Goes Here

@@ -6,6 +6,7 @@ import { Routes, Route } from "react-router-dom";
 
 // components
 import { Navbar, Navlink } from "./components/navbar";
+import { Page } from './components/page';
 import { Icon } from "@iconify/react";
 
 // pages
