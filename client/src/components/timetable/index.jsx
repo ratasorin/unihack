@@ -2,52 +2,36 @@
  * IMPORTS
  ***************************/
 import './timetable.css';
+import TTEvent from './ttevent';
 
 /**************************
  * CONFIG
  ***************************/
-
-export function TimetableEvent(params) {
-    return (
-        <div className='rounded-sm shadow-md pt-0 pb-0.5 px-1 white bg-teal-600 text-white'>{params.children}</div>
-    )
-}
-
 export default function Timetable(params) {
+
+    var prev = 0;
+
     return (
+        <div className='timetable-wrap'>
         <table className='timetable'>
+            {params.data.tasks.map(task => <tr>
+                {!(prev = 0) && ''}
+                <th>{task[0]}</th>
+                <td></td>
+                {task[1].map(evt => <>
+                    {[...Array(evt[0]-prev-1)].map(i => (<td></td>))}
+                    {(prev += evt[0]) && ''}
+                    <td><TTEvent popup={evt.length == 3 && evt[2]} width='150%'>{evt[1]}</TTEvent></td>
+                </>
+                )}
+            </tr>)}
             <tr>
-                <td>Task 1</td>
-                <td></td>
-                <td><TimetableEvent>Coleg</TimetableEvent></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Task 2</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Task 3</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td>1 day</td>
-                <td>3 days</td>
-                <td>1 week</td>
-                <td>2 weeks</td>
+                <th></th>
+                <th></th>
+                {params.data.dates.map(date => <th>{date}</th>)}
+                <th></th>
             </tr>
         </table>
+        </div>
     );
 }

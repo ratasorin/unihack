@@ -1,8 +1,8 @@
-import prisma from "..";
+import prisma from '..';
 
 const seed = async () => {
   const { id: userId } = await prisma.user.create({
-    data: {},
+    data: { mail: 'sedof91810@probdd.com' },
     select: { id: true },
   });
   const { id: taskId } = await prisma.task.create({
@@ -10,7 +10,7 @@ const seed = async () => {
     select: { id: true },
   });
   const { id: markingId } = await prisma.marking.create({
-    data: { payload: "Marking I", taskId },
+    data: { payload: 'Marking I', taskId },
     select: { id: true },
   });
   const { id: contentId } = await prisma.content.create({
@@ -23,19 +23,19 @@ const seed = async () => {
   });
 
   const d = await prisma.word.create({
-    data: { payload: "d", sentenceId, nextWordId: undefined },
+    data: { payload: 'd', sentenceId, nextWordId: undefined },
   });
 
   const c = await prisma.word.create({
-    data: { payload: "c", sentenceId, nextWordId: d.id },
+    data: { payload: 'c', sentenceId, nextWordId: d.id },
   });
 
   const b = await prisma.word.create({
-    data: { payload: "b", sentenceId, nextWordId: c.id },
+    data: { payload: 'b', sentenceId, nextWordId: c.id },
   });
 
   const a = await prisma.word.create({
-    data: { payload: "a", sentenceId, nextWordId: b.id },
+    data: { payload: 'a', sentenceId, nextWordId: b.id },
   });
 };
 

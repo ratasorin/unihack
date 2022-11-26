@@ -11,8 +11,28 @@ datasource db {
 }
 
 model User {
-  id    String @id @default(uuid())
-  Tasks Task[]
+  id       String    @id @default(uuid())
+  mail     String
+  Tasks    Task[]
+  Password Password?
+  sessions Session[]
+}
+
+model Password {
+  id     String @id @default(uuid())
+  hash   String
+  salt   String
+  User   User   @relation(fields: [userId], references: [id])
+  userId String @unique
+}
+
+model Session {
+  id        String   @id @default(uuid())
+  userId    String   @unique
+  createdAt DateTime @default(now())
+  lifeSpan  DateTime
+  status    String
+  User      User     @relation(fields: [userId], references: [id])
 }
 
 model Task {
