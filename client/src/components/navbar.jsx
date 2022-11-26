@@ -33,12 +33,15 @@ export function NavBar(props) {
   };
 
   return (
-    <nav className='NavBar fixed top-0 z-50 left-0 right-0 flex pt-8 pb-2 bg-gradient-to-r from-navbar1 to-navbar2 backdrop-blur-sm justify-center shadow-lg cursor-default'>
-      <div className='flex-1 drop-shadow-md flex max-w-5xl gap-2 text-white justify-start flex-col md:flex-row'>
+    <nav className='NavBar fixed top-0 z-50 left-0 right-0 flex pt-8 pb-2 
+      bg-gradient-to-r from-navbar1 to-navbar2 backdrop-blur-sm 
+      justify-center shadow-lg shadow-black-alpha-30 cursor-default'>
+      <div className='flex-1 drop-shadow-md flex max-w-5xl gap-2 
+      text-white justify-start flex-col md:flex-row'>
         <div className='flex-1 flex text-2xl px-2'>
           <div className='flex-1'>
             <NavLink to='/' className='hover:underline active:scale-110'>
-              <strong>Logo</strong> Goes Here
+              <strong>Think</strong>.er
             </NavLink>
           </div>
           <div className='self-end justify-self-end'>
@@ -52,7 +55,11 @@ export function NavBar(props) {
         </div>
         <div
           id='navbarLinks'
-          className='flex-1 gap-x-4 gap-y-2 p-1.5 hidden md:items-end md:justify-end flex-col bg-navbarOpen text-black md:bg-transparent md:text-white md:flex md:flex-row'
+          className='flex-1 gap-x-4 gap-y-2 p-1.5
+          hidden flex-col md:flex md:flex-row
+          md:items-end md:justify-end 
+          bg-white-alpha-50 text-black 
+          md:bg-transparent md:text-white'
         >
           {props.children}
         </div>

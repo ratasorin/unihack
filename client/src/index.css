@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#bodyBackground {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -999;
+    opacity: 70%;
+    /* background-image: url(assets/green-pattern.jpg); */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
