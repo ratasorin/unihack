@@ -34,9 +34,9 @@ function App() {
       </Navbar>
       <Page>
         <Routes>
-            <Route path="/" element={<HomePage />}></Route>
-            <Route path="/planner" element={<PlannerPage />}></Route>
-            <Route path="/practice" element={<PracticePage />}></Route>
+          <Route path="/" element={<HomePage />}></Route>
+          <Route path="/planner" element={<PlannerPage />}></Route>
+          <Route path="/practice" element={<PracticePage />}></Route>
         </Routes>
       </Page>
     </>
