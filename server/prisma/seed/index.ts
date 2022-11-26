@@ -22,20 +22,20 @@ const seed = async () => {
     select: { id: true },
   });
 
-  const a = await prisma.word.create({
-    data: { payload: "a", sentenceId, previousWordId: undefined },
-  });
-
-  const b = await prisma.word.create({
-    data: { payload: "b", sentenceId, previousWordId: a.id },
+  const d = await prisma.word.create({
+    data: { payload: "d", sentenceId, nextWordId: undefined },
   });
 
   const c = await prisma.word.create({
-    data: { payload: "c", sentenceId, previousWordId: b.id },
+    data: { payload: "c", sentenceId, nextWordId: d.id },
   });
 
-  const d = await prisma.word.create({
-    data: { payload: "d", sentenceId, previousWordId: c.id },
+  const b = await prisma.word.create({
+    data: { payload: "b", sentenceId, nextWordId: c.id },
+  });
+
+  const a = await prisma.word.create({
+    data: { payload: "a", sentenceId, nextWordId: b.id },
   });
 };
 
