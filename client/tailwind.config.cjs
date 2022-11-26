@@ -25,9 +25,15 @@ module.exports = {
         'black-alpha-20': "rgba(0,0,0,20%)",
         'black-alpha-10': "rgba(0,0,0,10%)",
       },
+      backgroundColor: {
+        cardColor: "#FFE85C",
+      },
       backgroundImage: {
         feynmann: "url(./src/assets/Richard-Feynman-featured.jpeg)",
         wave1: "url(./scr/assets/SVG/wave_1.svg)",
+      },
+      height: {
+        main: "44rem",
       },
     },
   },
