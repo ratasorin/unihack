@@ -1,4 +1,4 @@
-export function Button(props) {
+export default function Button(props) {
   if (props.color == 'green') {
     return (
       <button type={props.type} onChange={props.onChange} id={props.id} name={props.name} value={props.value} enabled={props.enabled} 
