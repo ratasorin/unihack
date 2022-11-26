@@ -1,34 +1,25 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import {Navbar, Navlink} from './components/navbar';
+import {Page} from './components/page';
+import {Icon} from '@iconify/react';
+import {Button} from './components/controls/button';
+import {Textbox} from './components/controls/textbox';
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+    return (
+        <>
+            <Navbar>
+                <Navlink>Navlink 1</Navlink>
+                <Navlink href="#">Navlink 2</Navlink>
+                <Navlink href="#"><Icon icon='ic:baseline-person-outline' className='inline-block align-top' width='24'/>Account</Navlink>
+            </Navbar>
+            <Page>
+                <p>Page content goes here</p>
+                <p>The content is centered</p>
+                <Button>Start!</Button>
+                <Textbox type='text' />
+            </Page>
+        </>
+    );
 }
 
 export default App
