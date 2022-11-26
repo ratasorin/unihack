@@ -55,7 +55,11 @@ export function NavBar(props) {
         </div>
         <div
           id='navbarLinks'
-          className='flex-1 gap-x-4 gap-y-2 p-1.5 hidden md:items-end md:justify-end flex-col bg-navbarOpen text-black md:bg-transparent md:text-white md:flex md:flex-row'
+          className='flex-1 gap-x-4 gap-y-2 p-1.5
+          hidden flex-col md:flex md:flex-row
+          md:items-end md:justify-end 
+          bg-white-alpha-50 text-black 
+          md:bg-transparent md:text-white'
         >
           {props.children}
         </div>
