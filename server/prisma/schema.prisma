@@ -30,7 +30,6 @@ model Session {
   id        String   @id @default(uuid())
   userId    String   @unique
   createdAt DateTime @default(now())
-  lifeSpan  DateTime
   status    String
   User      User     @relation(fields: [userId], references: [id])
 }
