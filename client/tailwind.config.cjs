@@ -8,6 +8,7 @@ module.exports = {
       colors: {
         navbar1: '#40A36E',
         navbar2: '#A5C268',
+        navbarOpen: 'rgba(255,255,255,50%)',
       },
     },
   },
