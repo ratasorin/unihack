@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 
 export default function SignUpPage() {
   return (<>
+    <div id='bodyBackground' style={{ backgroundImage: 'url(/src/assets/green-pattern.jpg)' }}></div>
       <h1 className='text-2xl text-center'>Sign Up</h1>
       <form 
         id='loginForm' 
