@@ -4,11 +4,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        navbar1: "#40A36E",
-        navbar2: "#A5C268",
+        navbar1: "#40A36EDD",
+        navbar2: "#A5C268DD",
         navbarOpen: "rgba(255,255,255,50%)",
-        btngreen1: "#88E9AF",
-        btngreen2: "#DDD370",
       },
       backgroundColor: {
         cardColor: "#FFE85C",

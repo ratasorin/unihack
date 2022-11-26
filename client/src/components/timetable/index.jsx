@@ -22,8 +22,7 @@ export default function Timetable(params) {
                     {[...Array(evt[0]-prev-1)].map(i => (<td></td>))}
                     {(prev += evt[0]) && ''}
                     <td><TTEvent popup={evt.length == 3 && evt[2]} width='150%'>{evt[1]}</TTEvent></td>
-                </>
-                )}
+                </>)}
             </tr>)}
             <tr>
                 <th></th>
