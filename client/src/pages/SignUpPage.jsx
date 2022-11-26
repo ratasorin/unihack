@@ -2,6 +2,7 @@ import React from 'react';
 import Button from '../components/controls/button';
 import Textbox from '../components/controls/textbox';
 import { Link } from 'react-router-dom';
+import { axios } from 'axios';
 
 export default function SignUpPage() {
   return (<>
@@ -10,8 +11,9 @@ export default function SignUpPage() {
       <h1 className='text-2xl text-center'>Sign Up</h1>
       <form
         id='signupForm'
-        action='http://localhost:3000/api/signUp'
-        method='POST'
+        onSubmit={() => {return false;}}
+        // action='http://localhost:3000/api/signUp'
+        // method='POST'
         className='flex flex-col gap-y-2'
       >
         <label>
@@ -44,6 +46,10 @@ export default function SignUpPage() {
                 name='password2'
                 className='block w-full'
             />
+        </label>
+        <label>
+          <input type='checkbox' />&nbsp;
+          I'm not a robot!
         </label>
       </form>
       <div className='flex justify-center gap-2'>
