@@ -65,11 +65,11 @@ model Word {
   Sentence       Sentence         @relation(fields: [sentenceId], references: [id])
   sentenceId     String
   EliminatedWord EliminatedWord[]
-  previousWordId String?
-  previousWord   Word?            @relation("previous-word", fields: [previousWordId], references: [id])
-  Word           Word[]           @relation("previous-word")
+  nextWordId     String?
+  nextWord       Word?            @relation("next-word", fields: [nextWordId], references: [id])
+  Word           Word[]           @relation("next-word")
 
-  @@unique([sentenceId, previousWordId])
+  @@unique([sentenceId, nextWordId])
 }
 
 model Success {
