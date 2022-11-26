@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "dev": "concurrently --kill-others \"cd server && npm run dev\" \"cd client && npm run dev\""
+    "dev": "concurrently --kill-others \"cd server && npm run dev\" \"cd client && npm run dev\"",
+    "install": "concurrently --kill-others \"cd server && npm install\" \"cd client && npm install\""
   },
   "devDependencies": {
     "concurrently": "^7.6.0"

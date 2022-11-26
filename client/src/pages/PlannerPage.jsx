@@ -7,8 +7,6 @@ import Timetable from '../components/timetable';
  * CONFIG
  ***************************/
 
-
-
 const PlannerPage = () => {
   return (
     <>
