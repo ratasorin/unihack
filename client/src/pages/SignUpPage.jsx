@@ -4,8 +4,7 @@ import Textbox from '../components/controls/textbox';
 import { Link } from 'react-router-dom';
 
 export default function SignUpPage() {
-  return (
-    <div className='mx-auto w-96 m-6 p-4 rounded-lg shadow-lg flex flex-col gap-y-4'>
+  return (<>
       <h1 className='text-2xl text-center'>Sign Up</h1>
       <form 
         id='loginForm' 
@@ -50,5 +49,6 @@ export default function SignUpPage() {
         <Link to='/account/login'><Button>Login</Button></Link>
       </div>
     </div>
+  </>
   )
 }
