@@ -3,8 +3,12 @@ import Button from '../components/controls/button';
 import Textbox from '../components/controls/textbox';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { useState } from 'react';
 
 export default function SignUpPage() {
+  const [error, setError] = useState('');
+  const [ok, setOK] = useState('');
+
   const handleSubmit = event => {
     event.preventDefault();
     const formData = new FormData(event.target)
@@ -18,14 +22,21 @@ export default function SignUpPage() {
     })
     .then(function (response) {
       console.log(response);
+      if (response.data.status == 'error') {
+        setError(response.data.message);
+      } else {
+        setOK(response.data.sessionId);
+      }
     })
     .catch(function (error) {
-      console.log(error);
+      setError(error.message);
     });
   }
 
   return (
     <>
+      {error && <div className='bg-red-500'>{error}</div>}
+      {ok && <div>{error}</div>}
       <div
         id="bodyBackground"
         style={{ backgroundImage: 'url(/src/assets/green-pattern.jpg)' }}
