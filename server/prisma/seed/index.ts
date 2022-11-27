@@ -2,7 +2,7 @@ import prisma from '..';
 
 const seed = async () => {
   const { id: userId } = await prisma.user.create({
-    data: { mail: 'sedof91810@probdd.com' },
+    data: { mail: 'sedof91810@probdd.com', verified: false },
     select: { id: true },
   });
   const { id: taskId } = await prisma.task.create({

@@ -4,6 +4,7 @@
     "install": "concurrently --kill-others \"cd server && npm install\" \"cd client && npm install\""
   },
   "devDependencies": {
+    "@types/crypto-js": "^4.1.1",
     "concurrently": "^7.6.0"
   }
 }

@@ -5,6 +5,7 @@ import prisma from '~prisma/index';
 import nodemailer from 'nodemailer';
 import dotenv from 'dotenv';
 import { v4 as uuidv4 } from 'uuid';
+import crypto from 'crypto-js';
 dotenv.config();
 type Success = {
   sessionId: string;
@@ -21,8 +22,8 @@ export default async function handler(
   const emailExists = await prisma.user.count({
     where: { mail: req.body.mail },
   });
-  if (emailExists)
-    return res.status(500).json({ error: 'Mail already in use' });
+  // if (emailExists)
+  // return res.status(500).json({ error: 'Mail already in use' });
   if (req.body.password != req.body.password2)
     return res.status(500).json({ error: 'Passwords do not match' });
 
@@ -33,6 +34,7 @@ export default async function handler(
     const user = await prisma.user.create({
       data: {
         mail: req.body.mail,
+        verified: false,
         Password: {
           create: {
             hash: hash,
@@ -61,23 +63,25 @@ export default async function handler(
     const session = user.sessions[0];
     const url =
       'http://localhost:3000/api/auth/' +
-      argon2.hash(user.id + process.env.pepperronni);
+      (await encodeURIComponent(
+        crypto.AES.encrypt(user.id, process.env.pepperronni!).toString(),
+      ));
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: 'stanica.andrei-claudiu@moisiltm.ro',
-        pass: 'DW.Welt2869',
+        user: 'think.er2869@gmail.com',
+        pass: process.env.mail_pass,
       },
     });
 
     var mailOptions = {
-      from: 'stanica.andrei-claudiu@moisiltm.ro',
+      from: 'think.er2869@gmail.com',
       to: user.mail,
-      subject: 'Please click the following link to confirm your email : ' + url,
-      text: 'That was easy!',
+      subject: 'That was easy!',
+      text: 'Please click the following link to confirm your email : ' + url,
     };
 
-    transporter.sendMail(mailOptions, function (error, info) {
+    await transporter.sendMail(mailOptions, function (error, info) {
       if (error) {
         console.log(error);
       } else {
