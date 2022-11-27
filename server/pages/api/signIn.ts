@@ -2,7 +2,9 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import argon2 from 'argon2';
 import prisma from '~prisma/index';
+import dotenv from 'dotenv';
 
+dotenv.config();
 type Success = {
   sessionId: string;
 };
@@ -11,7 +13,6 @@ type Error = {
   error: string;
 };
 
-const pepper = '2b156a9b-ca56-4026-8fd9-db03bcd22781';
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Success | Error>,
@@ -30,7 +31,7 @@ export default async function handler(
 
   const { hash, salt } = password;
 
-  if (!argon2.verify(hash, req.body.password + salt + pepper))
+  if (!argon2.verify(hash, req.body.password + salt + process.env.pepper))
     return res.status(500).json({ error: 'Password does not match' });
 
   try {
