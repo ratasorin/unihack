@@ -15,3 +15,11 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.btn {
+    background-color: rgba(0,0,0,10%);
+}
+
+label {
+    user-select: none;
+}

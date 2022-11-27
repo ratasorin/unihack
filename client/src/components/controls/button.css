@@ -1,4 +1,4 @@
-button.btn {
+.btn {
     font-family: inherit;
     font-size: inherit;
     font-weight: inherit;
@@ -14,53 +14,53 @@ button.btn {
     transition: background-color 0.2s, box-shadow 0.2s;
     user-select: none;
 }
-button.btn iconify-icon,
-button.btn svg {
+.btn iconify-icon,
+.btn svg {
     filter: drop-shadow(0 1px 0 rgba(0,0,0,20%));
 }
-button.btn:hover {
+.btn:hover {
     background-color: rgba(0,0,0,7%);
 }
-button.btn:active {
+.btn:active {
     background-color: rgba(0,0,0,16%);
     border-bottom: 2px solid rgba(0,0,0,8%);
 }
-button.btn:focus {
+.btn:focus {
     box-shadow: 0 0 0 1px rgba(0,0,0,20%);
 }
-button.btn.btn-green {
+.btn.btn-green {
     background-color: #69cd78;
     color: white;
     text-shadow: 0 1px 0 rgba(0,0,0,30%);
 }
-button.btn.btn-green:hover {
+.btn.btn-green:hover {
     background-color: #72da81;
 }
-button.btn.btn-green:active {
+.btn.btn-green:active {
     background-color: #62c172;
 }
-button.btn.btn-red {
+.btn.btn-red {
     background-color: #e65c5c;
     color: white;
     text-shadow: 0 1px 0 rgba(0,0,0,40%);
 }
-button.btn.btn-red:hover {
+.btn.btn-red:hover {
     background-color: #f27171;
 }
-button.btn.btn-red:active {
+.btn.btn-red:active {
     background-color: #cf5a5a;
 }
-button.btn label {
+.btn label {
     display: inline-block;
     margin: 0;
     padding: 0;
 }
-button.btn iconify-icon,
-button.btn svg {
+.btn iconify-icon,
+.btn svg {
     font-size: 18px;
     margin: -4px 0 -4px -4px;
 }
-button.btn[disabled] {
+.btn[disabled] {
     color: #888;
     background-color: rgba(0,0,0,6%);
     border-bottom: 2px solid rgba(0,0,0,8%);
