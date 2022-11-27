@@ -17,6 +17,13 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Success | Error>,
 ) {
+  res.setHeader('Access-Control-Request-Method', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.setHeader('Access-Control-Request-Headers', '*');
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.setHeader('Access-Control-Max-Age', '3600');
+  res.setHeader('Access-Control-Allow-Headers', '*');
+
   const password = await prisma.password.findFirst({
     where: { User: { mail: req.body.mail } },
   });
