@@ -13,26 +13,30 @@ import ThirdStage from "../components/practice-options/ThirdStage";
  ***************************/
 
 const PracticePage = () => {
-  const [stage, setStage] = useState(1);
+	const [stage, setStage] = useState(1);
 
-  let cardText;
+	let cardText;
 
-  if (stage === 1) {
-    cardText = <FirstStage setStage={setStage} />;
-  } else if (stage === 2) {
-    cardText = <SecondStage setStage={setStage} />;
-  } else {
-    cardText = <ThirdStage setStage={setStage} />;
-  }
+	if (stage === 1) {
+		cardText = <FirstStage setStage={setStage} />;
+	} else if (stage === 2) {
+		cardText = <SecondStage setStage={setStage} />;
+	} else {
+		cardText = <ThirdStage setStage={setStage} />;
+	}
 
-  return (
-    <main className="h-main flex flex-wrap flex-col items-center">
-      <h1 className="text-4xl bold mt-12 font-bold text-center">Help us help you customize your learning experience!</h1>
-      <div className="h-80 w-4/5 bg-cardColor shadow-lg shadow-black-alpha-20 rounded-3xl mt-16">
-        <div className="m-8">{cardText}</div>
-      </div>
-    </main>
-  );
+	return (
+		<main className="h-main flex flex-wrap flex-col items-center mt-6 p-4">
+			<div className="flex flex-col items-center bg-white-alpha-80 rounded-lg shadow-md backdrop-blur-sm">
+				<h1 className="text-3xl font-bold p-6 text-center">
+					Help us help you customize your learning experience!
+				</h1>
+				<div className="w-4/5 bg-cardColor backdrop-blur-sm shadow-lg shadow-black-alpha-20 rounded-xl mb-10">
+					<div className="m-6">{cardText}</div>
+				</div>
+			</div>
+		</main>
+	);
 };
 
 export default PracticePage;
