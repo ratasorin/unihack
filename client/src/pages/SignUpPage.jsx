@@ -53,20 +53,11 @@ export default function SignUpPage() {
             <input type="checkbox" required className='w-4 h-4' />
             <span className='flex-1 ml-3'>I'm not a robot!</span>
           </label>
+          <div className="flex justify-center gap-2">
+            <Button color="green" type='submit'>Submit</Button>
+            <Link to="/account/login" className='btn'>Login</Link>
+          </div>
         </form>
-        <div className="flex justify-center gap-2">
-          <Button
-            color="green"
-            onClick={() => {
-              document.getElementById('signupForm').submit();
-            }}
-          >
-            Submit
-          </Button>
-          <Link to="/account/login">
-            <Button>Login</Button>
-          </Link>
-        </div>
       </div>
     </>
   );
