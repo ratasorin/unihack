@@ -49,9 +49,9 @@ export default function SignUpPage() {
               className="block w-full"
             />
           </label>
-          <label>
-            <input type="checkbox" />
-            &nbsp; I'm not a robot!
+          <label className='flex items-center'>
+            <input type="checkbox" required className='w-4 h-4' />
+            <span className='flex-1 ml-3'>I'm not a robot!</span>
           </label>
         </form>
         <div className="flex justify-center gap-2">
