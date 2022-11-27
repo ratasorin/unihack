@@ -30,6 +30,6 @@ export default async function handler(
     });
     res.status(200);
   } catch (error) {
-    res.status(500).json({ error: 'There was an unexpected error !' });
+    res.status(200).json({ error: 'There was an unexpected error !' });
   }
 }
