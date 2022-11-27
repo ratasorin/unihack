@@ -3,7 +3,7 @@ import './button.css';
 export default function Button(props) {
   return (
     <button 
-      type={props.type} 
+      type={props.type ? props.type : 'button'} 
       id={props.id}
       onClick={props.onClick}
       name={props.name} 

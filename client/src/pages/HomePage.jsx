@@ -21,7 +21,7 @@ const HomePage = () => {
         </div>
 
         {/* Feynmann image */}
-        <div className="w-1/3 bg-feynmann bg-cover bg-no-repeat rounded-full bg-center"></div>
+        <div className="w-1/3 bg-feynmann shadow-lg shadow-black-alpha-50 bg-cover bg-no-repeat rounded-full bg-center"></div>
       </div>
     </main>
   );

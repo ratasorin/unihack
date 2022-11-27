@@ -1,6 +1,7 @@
 /*******************************
  * IMPORTS
  *******************************/
+
 /*******************************
  * COMPONENTS
  *******************************/
@@ -16,6 +17,7 @@ import PlannerPage from './pages/PlannerPage';
 import PracticePage from './pages/PracticePage';
 import LoginPage from './pages/LoginPage';
 import SignUpPage from './pages/SignUpPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 /*******************************
  * COM
@@ -32,7 +34,7 @@ function App() {
           <Route path='login' element={<LoginPage />} />
           <Route path='signup' element={<SignUpPage />} />
         </Route>
-        {/* <Route path='*' element={<NotFoundPage />} /> */}
+        <Route path='*' element={<NotFoundPage />} />
       </Route>
     </Routes>
   );
