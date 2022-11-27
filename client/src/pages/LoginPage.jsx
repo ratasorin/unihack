@@ -42,7 +42,7 @@ export default function LoginPage() {
         </form>
         <div className='flex justify-center gap-2'>
           <Button color='green' onClick={() => { document.getElementById('loginForm').submit() }}>Submit</Button>
-          <Link to='/account/signup'><Button>Sign up</Button></Link>
+          <Link to='/account/signup' className='btn'>Sign up</Link>
         </div>
       </div>
     </>
