@@ -31,15 +31,15 @@ export default async function handler(
     where: { mail: req.body.mail },
   });
 
-  if (!user) return res.status(200).json({ error: 'Account does not exist' });
+  if (!user) return res.status(500).json({ error: 'Account does not exist' });
 
   if (!password)
-    return res.status(200).json({ error: 'Password does not exist' });
+    return res.status(500).json({ error: 'Password does not exist' });
 
   const { hash, salt } = password;
 
   if (!argon2.verify(hash, req.body.password + salt + process.env.pepper))
-    return res.status(200).json({ error: 'Password does not match' });
+    return res.status(500).json({ error: 'Password does not match' });
 
   try {
     const { id: sessionId } = await prisma.session.create({
@@ -51,6 +51,6 @@ export default async function handler(
     });
     res.status(200).json({ sessionId });
   } catch (error) {
-    res.status(200).json({ error: 'There was an unexpected error !' });
+    res.status(500).json({ error: 'There was an unexpected error !' });
   }
 }

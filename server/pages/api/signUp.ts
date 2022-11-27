@@ -30,9 +30,9 @@ export default async function handler(
     where: { mail: req.body.mail },
   });
   // if (emailExists)
-  // return res.status(200).json({ error: 'Mail already in use' });
+  // return res.status(500).json({ error: 'Mail already in use' });
   if (req.body.password != req.body.password2)
-    return res.status(200).json({ error: 'Passwords do not match' });
+    return res.status(500).json({ error: 'Passwords do not match' });
 
   const salt = uuidv4();
   const hash = await argon2.hash(req.body.password + salt + process.env.pepper);
@@ -95,8 +95,9 @@ export default async function handler(
         console.log('Email sent: ' + info.response);
       }
     });
+
     res.status(200).json({ sessionId: session.id });
   } catch (error) {
-    res.status(200).json({ error: 'An internal error has occurred' });
+    res.status(500).json({ error: 'An internal error has occurred' });
   }
 }
