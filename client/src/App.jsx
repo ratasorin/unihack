@@ -30,8 +30,8 @@ function App() {
 		accountRoutes = (
 			<>
 				<Route index element={<Navigate to="account" />} />
-				<Route path="login" element={<Navigate to="account" />} />
-				<Route path="signup" element={<Navigate to="account" />} />
+				<Route path="login" element={<Navigate to="/account" />} />
+				<Route path="signup" element={<Navigate to="/account" />} />
 				<Route path="account" element={<AccountPage />} />
 			</>
 		);
