@@ -17,23 +17,19 @@ export default async function handler(
 	req: NextApiRequest,
 	res: NextApiResponse<Success | Error>
 ) {
-	const emailExists = await prisma.user.count({
-		where: { mail: req.body.mail },
-	});
-	// if (emailExists)
-	// return res.status(500).json({ error: 'Mail already in use' });
-	if (req.body.password != req.body.password2)
+	const { mail, password, confirmPassword } = JSON.parse(req.body);
+	if (!mail || !password || !confirmPassword)
+		return res.status(500).json({ error: "Fields are missing !" });
+	if (password != confirmPassword)
 		return res.status(500).json({ error: "Passwords do not match" });
 
 	const salt = uuidv4();
-	const hash = await argon2.hash(
-		req.body.password + salt + process.env.pepper
-	);
+	const hash = await argon2.hash(password + salt + process.env.pepper);
 
 	try {
 		const user = await prisma.user.create({
 			data: {
-				mail: req.body.mail,
+				mail,
 				verified: false,
 				Password: {
 					create: {
