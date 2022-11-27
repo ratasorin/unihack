@@ -91,10 +91,10 @@ export default function SignUpPage() {
 					</label>
 					<div className="flex justify-center gap-2">
 						<Button color="green" type="submit">
-							Submit
+							Create Account
 						</Button>
 						<Link to="/account/login" className="btn">
-							Login
+							Login to existing
 						</Link>
 					</div>
 				</form>
