@@ -1,12 +1,12 @@
 .timetable-wrap {
-    overflow-y: auto;
+	overflow-y: auto;
 }
 
 .timetable {
-    cursor: default;
-    margin: 0 auto;
+	cursor: default;
+	margin: 0 auto;
 
-    min-width: 30rem;
+	min-width: 30rem;
 }
 
 /* .timetable tr th:not(:first-child) {
@@ -26,58 +26,59 @@
 
 .timetable tr td,
 .timetable tr th {
-    border-right: 1px dotted #ccc;
-    padding: 2px 4px;
+	border-right: 1px dotted #ccc;
+	padding: 2px 4px;
 }
 .timetable tr td:last-child {
-    border-right: none;
+	border-right: none;
 }
 .timetable tr th:first-child {
-    border-right: 1px solid #aaa;
-    text-align: right;
-    border-top: none;
+	border-right: 1px solid #aaa;
+	text-align: right;
+	border-top: none;
 }
 .timetable tr:last-child th {
-    border-top: 1px solid #aaa;
-    border-left: 1px dotted #ccc;
-    border-right: none;
-    text-align: left;
-    padding-left: 4px;
+	border-top: 1px solid #aaa;
+	border-left: 1px dotted #ccc;
+	border-right: none;
+	text-align: left;
+	padding-left: 4px;
 }
 .timetable tr td:nth-child(2),
 .timetable tr th:nth-child(2) {
-    width: 10px !important;
+	width: 10px !important;
 }
 .timetable tr:last-child th:nth-child(2) {
-    border-left: none;
+	border-left: none;
 }
 .timetable tr:last-child th:first-child {
-    border: none;
+	border: none;
 }
 
 .timetable .event {
-    background-color: #40AC6E;
-    color: white;
-    border-radius: 4px;
-    padding: 0 5px 1px;
-    box-shadow: 0;
+	background-color: #40ac6e;
+	color: white;
+	border-radius: 4px;
+	padding: 0 5px 1px;
+	box-shadow: 0;
 }
 
 .ttevent {
-    @apply relative;
+	@apply relative;
 }
 
 .ttevent .ttcard {
-    @apply rounded-sm shadow-md pt-0 pb-0.5 px-1 transition-all bg-gray-700 hover:brightness-110 active:brightness-95 text-white text-left;
+	@apply rounded-sm shadow-md pt-0 pb-0.5 px-1 transition-all bg-gray-700 hover:brightness-110 active:brightness-95 text-white text-left;
 }
 
 .ttevent .ttpopup {
-    @apply absolute bg-gray-100 rounded-md shadow-lg transition-all p-2 text-left;
-    top: 100%; left: 0;
-    width: 200px;
-    z-index: 49;
+	@apply absolute bg-gray-100 rounded-md shadow-lg transition-all p-2 text-left;
+	top: 100%;
+	left: 0;
+	width: 200px;
+	z-index: 49;
 }
 
 .ttevent .ttclose {
-    @apply hover:bg-gray-200 rounded-md hover:shadow-lg transition-all float-right;
+	@apply hover:bg-gray-200 rounded-md hover:shadow-lg transition-all float-right;
 }
