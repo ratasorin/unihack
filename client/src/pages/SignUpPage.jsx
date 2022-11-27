@@ -2,8 +2,28 @@ import React from 'react';
 import Button from '../components/controls/button';
 import Textbox from '../components/controls/textbox';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 export default function SignUpPage() {
+  const handleSubmit = event => {
+    event.preventDefault();
+    const formData = new FormData(event.target)
+    const body = {}
+    formData.forEach((value, property) => body[property] = value)
+    
+    axios({
+      method: 'post',
+      url: 'http://localhost:3000/api/signUp',
+      data: body
+    })
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
+
   return (
     <>
       <div
@@ -13,9 +33,7 @@ export default function SignUpPage() {
       <div className="mx-auto backdrop-blur-sm w-96 m-6 p-4 bg-white-alpha-80 rounded-lg shadow-lg shadow-black-alpha-50 flex flex-col gap-y-4">
         <h1 className="text-2xl text-center">Sign Up</h1>
         <form
-          id="signupForm"
-          action="http://localhost:3000/api/signUp"
-          method="POST"
+          onSubmit={handleSubmit}
           className="flex flex-col gap-y-2"
         >
           <label>
