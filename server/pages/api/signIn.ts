@@ -17,11 +17,15 @@ export default async function handler(
 	req: NextApiRequest,
 	res: NextApiResponse<Success | Error>
 ) {
+	const { mail, u_password } = JSON.parse(req.body);
+	if (!mail || !u_password)
+		return res.status(500).json({ error: "Fields are missing!" });
+
 	const password = await prisma.password.findFirst({
-		where: { User: { mail: req.body.mail } },
+		where: { User: { mail: mail } },
 	});
 	const user = await prisma.user.findFirst({
-		where: { mail: req.body.mail },
+		where: { mail: mail },
 	});
 
 	if (!user) return res.status(500).json({ error: "Account does not exist" });
@@ -31,7 +35,7 @@ export default async function handler(
 
 	const { hash, salt } = password;
 
-	if (!argon2.verify(hash, req.body.password + salt + process.env.pepper))
+	if (!argon2.verify(hash, u_password + salt + process.env.pepper))
 		return res.status(500).json({ error: "Password does not match" });
 
 	try {
@@ -44,6 +48,6 @@ export default async function handler(
 		});
 		res.status(200).json({ sessionId });
 	} catch (error) {
-		res.status(500).json({ error: "There was an unexpected error !" });
+		res.status(500).json({ error: "There was an unexpected error!" });
 	}
 }
