@@ -10,8 +10,8 @@ import { Link } from "react-router-dom";
 const HomePage = () => {
 	return (
 		<>
-			<main className="mt-12 flex flex-col flex-wrap rounded-lg shadow-md bg-white-alpha-80 backdrop-blur-sm py-10 justify-center items-center">
-				<div className="w-4/5 flex flex-row flex-nowrap ">
+			<main className="mt-12 px-10 flex flex-col flex-wrap rounded-lg shadow-md bg-white-alpha-80 backdrop-blur-sm py-10 justify-center items-center">
+				<div className="w-full flex flex-row flex-nowrap ">
 					<div className="w-2/3 flex flex-col gap-6">
 						<div>
 							<h1 className="text-6xl mb-2">Be smart.</h1>
@@ -36,8 +36,8 @@ const HomePage = () => {
 					<div className="w-1/3 bg-thinker shadow-lg shadow-black-alpha-50 bg-cover bg-no-repeat rounded-3xl bg-center"></div>
 				</div>
 			</main>
-			<main className="mt-12 flex flex-col flex-wrap rounded-lg shadow-md bg-white-alpha-80 backdrop-blur-sm py-10 justify-center items-center">
-				<div className="w-4/5 h-64 flex flex-row flex-nowrap ">
+			<main className="mt-12 px-10 flex flex-col flex-wrap rounded-lg shadow-md bg-white-alpha-80 backdrop-blur-sm py-10 justify-center items-center">
+				<div className="w-full h-64 flex flex-row flex-nowrap ">
 					<div className="w-2/3">
 						<h1 className="italic text-2xl">
 							“Study hard what interests you the most in the most
