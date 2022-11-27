@@ -46,6 +46,8 @@ export default async function handler(
         },
       },
       select: {
+        id: true,
+        mail: true,
         sessions: {
           select: { id: true },
           where: { status: 'pending' },
@@ -57,6 +59,31 @@ export default async function handler(
 
     if (!user) return;
     const session = user.sessions[0];
+    const url =
+      'http://localhost:3000/api/auth/' +
+      argon2.hash(user.id + process.env.pepperronni);
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: 'stanica.andrei-claudiu@moisiltm.ro',
+        pass: 'DW.Welt2869',
+      },
+    });
+
+    var mailOptions = {
+      from: 'stanica.andrei-claudiu@moisiltm.ro',
+      to: user.mail,
+      subject: 'Please click the following link to confirm your email : ' + url,
+      text: 'That was easy!',
+    };
+
+    transporter.sendMail(mailOptions, function (error, info) {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email sent: ' + info.response);
+      }
+    });
 
     res.status(200).json({ sessionId: session.id });
   } catch (error) {
